@@ -12,7 +12,8 @@ function lookupViaCity(city) {
 }
 
 function filter(city) {
-  const cityLookup = _.filter(cityMapping, function (o) { return _.includes(o.city, city) })
+  var regex = new RegExp('.*' + city + '.*', 'i')
+  const cityLookup = _.filter(cityMapping, function (o) { return o.city.search(regex) != -1 })
   if (cityLookup && cityLookup.length > 0) {
     return cityLookup
   } else {

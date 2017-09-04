@@ -32,5 +32,10 @@ describe('City filter tests', function() {
       let city = cityTimezones.filter('echi')
       console.log(city.length + ' matches found for echi')
       assert(city.length == 2, city);
+    })
+    it('should find case-insensitive', function() {
+      let city = cityTimezones.filter('berlin')
+      console.log(city.length + ' matches found for berlin')
+      assert(city.length == 1, city);
     });
 });
