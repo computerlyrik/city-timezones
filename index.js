@@ -11,6 +11,16 @@ function lookupViaCity(city) {
   }
 }
 
+function filter(city) {
+  const cityLookup = _.filter(cityMapping, function (o) { return _.includes(o.city, city) })
+  if (cityLookup && cityLookup.length > 0) {
+    return cityLookup
+  } else {
+    return []
+  }
+}
+
 module.exports = {
-  lookupViaCity
+  lookupViaCity,
+  filter
 };
